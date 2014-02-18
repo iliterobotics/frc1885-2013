@@ -1,0 +1,3 @@
+[submodule "communications"]
+	path = communications
+	url = https://code.google.com/p/frc1885-2013.communications/

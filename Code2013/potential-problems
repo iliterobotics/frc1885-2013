@@ -1,0 +1,5 @@
+Input.cpp|35|          wait forever in sem take
+Main.cpp|158|          enabling compressor if it isn't already
+NetDriver.cpp|152|     memcpy in NetDriver thread
+
+Exception on disconnect (ask Boyd)
