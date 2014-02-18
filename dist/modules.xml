@@ -1,0 +1,42 @@
+<utilityapp>
+	<!--module>
+		<model>org.ilite.utilityapp.modules.pid.PIDModuleModel</model>
+		<control>org.ilite.utilityapp.modules.pid.PIDModuleControl</control>
+		<view>org.ilite.utilityapp.modules.pid.PIDModuleView</view>
+	</module-->
+	
+	<!--module>
+		<model>org.ilite.utilityapp.modules.debug.DebugModuleModel</model>
+		<control>org.ilite.utilityapp.modules.debug.DebugModuleControl</control>
+		<view>org.ilite.utilityapp.modules.debug.DebugModuleView</view>
+	</module-->
+	
+	<module>
+		<model>org.ilite.utilityapp.modules.displaylog.DisplayLogModuleModel</model>
+		<control>org.ilite.utilityapp.modules.displaylog.DisplayLogModuleControl</control>
+		<view>org.ilite.utilityapp.modules.displaylog.DisplayLogModuleView</view>
+	</module>
+	
+	<module>
+		<model>org.ilite.utilityapp.modules.display2013.CompetitionDisplay2013Model</model>
+		<control>org.ilite.utilityapp.modules.display2013.CompetitionDisplay2013Control</control>
+		<view>org.ilite.utilityapp.modules.display2013.CompetitionDisplay2013View</view>
+	</module>
+	
+	<!--module>
+		<model>org.ilite.utilityapp.modules.sensors.SensorModuleModel</model>
+		<control>org.ilite.utilityapp.modules.sensors.SensorModuleControl</control>
+		<view>org.ilite.utilityapp.modules.sensors.SensorModuleView</view>
+	</module-->
+	
+	<!--module>
+		<model>org.ilite.utilityapp.modules.command.CommandModuleModel</model>
+		<control>org.ilite.utilityapp.modules.command.CommandModuleControl</control>
+		<view>org.ilite.utilityapp.modules.command.CommandModuleView</view>
+	</module-->
+  
+  <!--module>
+    <control>org.ilite.utilityapp.modules.replay2013.Replay2013Control</control>
+  </module-->
+
+</utilityapp>

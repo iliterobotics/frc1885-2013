@@ -1,0 +1,32 @@
+<robot>
+	<config>
+		<property name="system.organization" value="FRC 1885" type="STRING"></property>
+   	<property name="system.standalonemode" value="false" type="BOOLEAN"></property>
+		<property name="robot.crio.ip" value="10.18.85.2" type="STRING"></property>
+		<property name="robot.crio.port" value="1180" type="INTEGER"></property>
+		<property name="robot.marker.image" value="0xDEADBEEF" type="INTEGER"></property>
+		<property name="robot.marker.data" value="0xCAFEFACE" type="INTEGER"></property>
+		<property name="robot.camera.width" value="640" type="INTEGER"></property>
+		<property name="robot.camera.height" value="400" type="INTEGER"></property>
+		<property name="robot.camera.url" value="http://10.18.85.11:80/stream_0" type="STRING"></property>
+		<property name="robot.camera.bufferSizeBytes" value="8192" type="INTEGER"></property>
+		<property name="ui.textsize.large" value="18" type="INTEGER"></property>
+		<property name="ui.textsize.small" value="12" type="INTEGER"></property>
+		<property name="system.output.dir" value="c:\robotdata\" type="STRING"></property>
+		<property name="system.output.image.format" value="PNG" type="STRING"></property>
+		<property name="2012.ui.verticalCameraCursor" value="337" type="INTEGER"></property>
+		<property name="2012.ui.horizontalCameraCursor" value="264" type="INTEGER"></property>
+		<property name="2013.images.cad" value="images/Ilite_CAD_ACTUAL.png" type="STRING"></property>
+		<property name="2013.images.deadpanda" value="images/deadpanda2.jpg" type="STRING"></property>
+		<property name="2013.images.default" value="images/DefaultPositionCropped.jpg" type="STRING"></property>
+		<property name="2013.images.hanging" value="images/HangingCropped.jpg" type="STRING"></property>
+		<property name="2013.images.loading" value="images/LoadingFromFloorCropped.jpg" type="STRING"></property>
+		<property name="2013.images.launching" value="images/ReadyToLaunchCropped.jpg" type="STRING"></property>
+		<property name="2013.images.connected" value="images/ConnectionSuccessful.png" type="STRING"></property>
+		<property name="2013.robot.overHeightLimitUpper" value="2" type="DOUBLE"></property>
+		<property name="2013.robot.overHeightLimitLower" value="-1" type="DOUBLE"></property>
+		<property name="burnpath" value="C:\\Users\\Kevin\\Desktop\\DisplayApp" type="STRING"></property>
+		<property name="robot.data.output.path" value="matchdata\\" type="STRING"></property>
+		<property name="2013.ui.defaults.module" value="ULTIMATE ASCENT" type="STRING"></property>
+	</config>
+</robot>

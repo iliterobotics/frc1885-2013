@@ -1,0 +1,1 @@
+ALL robot images should go into this folder.

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project frc1885-2013.display">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="Z:/UserData/Documents/FRC2013/frc1885-2013.display/lib/ultimateascent.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="org.ilite.utilityapp.Application"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="Z:/UserData/Documents/FRC2013/frc1885-2013.display/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="Z:/UserData/Documents/FRC2013/frc1885-2013.display/lib/protobuf-2.4.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="Z:/UserData/Documents/FRC2013/frc1885-2013.display/lib/SmartDashboard2012.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="Z:/UserData/Documents/FRC2013/frc1885-2013.display/lib/tinylaf.jar"/>
+            <fileset dir="Z:/UserData/Documents/FRC2013/frc1885-2013.communications/bin"/>
+        </jar>
+    </target>
+</project>

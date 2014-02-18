@@ -1,0 +1,8 @@
+/bin
+/comm
+Thumbs.db
+/.classpath
+.project
+.settings
+*.csv
+/matchdata

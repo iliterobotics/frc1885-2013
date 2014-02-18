@@ -1,0 +1,5 @@
+<utilityapp>	
+	<module>
+		<control>ilite.display.modules.display2014.CompetitionDisplay2014View</control>
+	</module>
+</utilityapp>
