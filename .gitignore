@@ -1,0 +1,56 @@
+# editor, etc
+.project
+*.tmp
+*.swp
+*~
+tags
+
+# cmake
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+# builds
+*.a
+*.dylib
+*.la
+*.lai
+*.lo
+*.o
+*.slo
+*.so
+*.class
+
+# if it's listed below, put it elsewhere.
+*.7z
+*.aif
+*.avi
+*.bak
+*.bz2
+*.bzip
+*.db
+*.deb
+*.dmg
+*.egg
+*.gem
+*.gif
+*.gz
+*.iso
+*.jar
+*.jpg
+*.lzma
+*.mid
+*.midi
+*.mp3
+*.oni
+*.pdf
+*.ps
+*.rar
+*.rpm
+*.tar
+*.wav
+*.xpi
+*.xz
+*.zip

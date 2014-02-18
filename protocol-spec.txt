@@ -1,0 +1,77 @@
+Specification for serialization protocol. FRC Team 1885. ILITE Robotics.
+
+Terms:
+  Int, Integer - 32 bit 2's compliment number
+  Double - 64 bit IEEE-754 compliant floating point number
+  Boolean - 8 bit true (non-zero)/false (zero) value
+  Byte - 8 bit value
+  Char - ASCII encoded 8-bit value
+  String - Array of chars. Has no implicit nul termintor.
+  Chunk - An array of bytes that contains any of the above, including other chunks.
+
+All data in Chunks is stored in network byte order (big endian).
+
+There are two possible formats for serialized data, one is text and intended for debugging. The other is binary and intended for speed/throughput. These protocols are identified by a four byte header on each chunk, which is:
+  TXT\0 for text chunks
+  BIN\0 for binary chunks
+  (where the \0's are nul terminators)
+
+The following data types are allowed to be transmitted over the wire. More can be added if it is deemed necessary:
+  Integer
+  Double
+  Boolean
+  String
+  Chunk
+
+
+The text protocol uses a ':' as a field delimeter, and contains the following fields for each serialized value:
+size:type:value:
+  size is the Integer number of Chars between the first encountered delimeter and the final delimeter of the field, inclusive of the delimeters but exclusive of the size itself. 
+    -> For example, in 7:int:1:, ':int:1:' is 7 chars, as specified by the 7
+  type is the type of the data being sent. It can be one of the following values: int, str, double, bool, chunk
+  value is the value of the serialized data in textual format. The sole exception is nested chunks: these should be inserted as binary data. (Thus, if a binary chunk is inserted into a text chunk, the binary chunk shall not be transformed into text.)
+
+An example of the following serialized values is shown:
+  -> The Integer 1
+  -> The Boolean true
+  -> The Double 3.14159
+  -> The String "h3rro!"
+  -> And a copy of the above embedded into itself
+TXT\07:int:1:8:bool:1:16:double:3.14159:12:str:h3rro!:61:chunk:TXT\07:int:1:8:bool:1:16:double:3.14159:12:str:h3rro!::
+
+The binary protocol has no field delimeter in order to minimize the size of the data transmitted over the wire. The format of the serialized data is as follows:
+
+TTV[V[V[...]]] (for Integers, Doubles, and Booleans)
+-or-
+TTSSSSV[V[V[...]]] (for Strings and Chunks)
+
+Where each letter represents a byte of data, and 
+  T represents the type
+  S represents the size of the value (in bytes)
+  V represents the value
+
+Additionally, the MSB of the type (the 15th bit) shall be 1 if size is included, and 0 if size is not included. This is to ensure that if, for whatever reason, size was not included (and was intended to be) or size was included (and was not meant to be), we can handle it on the receiving end gracefully.
+
+The numeric identifier assigned to each type is:
+  0x00 - Byte
+  0x01 - Boolean
+  0x02 - Character
+  0x03 - Chunk
+  0x04 - Double
+  0x05 - Integer
+  0x06 - String
+
+The hexidecimal representation of sending an Integer, 15 looks like:
+  00 05 00 00 00 0F
+
+The hexidecimal representation of sending a chunk with the above Integer embedded looks like:
+  80 03 00 00 00 0A 42 49 4E 00 00 05 00 00 00 0F
+
+where:
+  80 03 -> Type Chunk is being transmitted with size
+  00 00 00 0A -> Size is 0x0A (10)
+  { Chunk data:
+    -> 42 49 4E 00 -> "BIN\0" (binary chunk header)
+    -> 00 05 -> Type Int is being transmitted without size
+    -> 00 00 00 0F -> Int is 0x0F (15)
+  }
