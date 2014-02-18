@@ -1,0 +1,6 @@
+[submodule "comm"]
+	path = comm
+	url = http://code.google.com/p/frc1885-2013.communications
+[submodule "streamer"]
+	path = streamer
+	url = https://github.com/ethanrublee/streamer.git

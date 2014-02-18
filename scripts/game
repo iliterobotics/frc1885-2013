@@ -1,0 +1,82 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:		game
+# Required-Start:	$remote_fs $syslog
+# Required-Stop:	$remote_fs $syslog
+# Default-Start:	2 3 4 5
+# Default-Stop:
+# Short-Description:	FRC game
+### END INIT INFO
+
+set -e
+
+# /etc/init.d/ssh: start and stop the FRC game
+
+project_root="/home/dev/code"
+executable="$project_root/bin/UltimateAscent"
+log_dir="$project_root/log"
+log_file="ascent$(date +'%y-%m-%d_%H-%M-%S').log"
+current_log_link="current.log"
+
+export PATH="${PATH:+$PATH:}/usr/sbin:/sbin"
+
+is_running() {
+   pgrep UltimateAscent &>/dev/null
+   return $?
+}
+
+do_stop() {
+   # doesn't die on SIGTERM
+   killall -s SIGKILL UltimateAscent
+}
+
+do_start() {
+   mkdir -p $log_dir
+   touch "$log_dir/$log_file"
+   ln -fs "$log_dir/$log_file" "$log_dir/$current_log_link"
+   $executable  > "$log_dir/$log_file" 2>&1 &
+}
+
+case "$1" in
+start)
+   if is_running ; then
+      echo "Already running."
+   else
+      echo "Starting..."
+      do_start
+   fi
+   ;;
+
+stop)
+   if is_running ; then
+      echo "Stopping..."
+      do_stop
+   else
+      echo "Not running."
+   fi
+   ;;
+
+status)
+   if is_running ; then
+      echo "Running."
+   else
+      echo "Not running."
+   fi
+	;;
+
+restart)
+   if is_running ; then
+      echo "Stopping..."
+      do_stop
+   fi
+   echo "Starting..."
+   do_start
+   ;;
+
+*)
+	log_action_msg "Usage: /etc/init.d/ssh {start|stop|status}" || true
+	exit 1
+esac
+
+exit 0

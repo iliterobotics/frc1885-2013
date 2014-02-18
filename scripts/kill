@@ -1,0 +1,2 @@
+# Use the init script if possible (service game stop)
+sudo kill -9 $(pgrep UltimateAscent)

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+date -s "$@"
+for files in "*.h" "*.cpp"
+do
+   echo "Touching $files..."
+   find /home/dev/code -type f -name "$files" | xargs touch
+done

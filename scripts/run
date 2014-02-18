@@ -1,0 +1,21 @@
+#!/bin/bash
+# Use the init script if possible (service game start)
+project_root="/home/dev/code"
+executable="$project_root/bin/UltimateAscent"
+log_dir="$project_root/log"
+log_file="ascent$(date +'%y-%m-%d_%H-%M-%S').log"
+current_log_link="current.log"
+make_flags="-j5"
+
+echo "Executable: $executable"
+echo "Log file: $log_dir/$log_file ($log_dir/$current_log_link)"
+
+mkdir -p $log_dir
+if [[ $(whoami) == root ]] ; then
+   echo "Already root."
+   $executable 2>&1 | tee "$log_dir/$log_file"
+else
+   touch "$log_dir/$log_file"
+   ln -fs "$log_dir/$log_file" "$log_dir/$current_log_link"
+   sudo $executable 2>&1 | tee "$log_dir/$log_file"
+fi
