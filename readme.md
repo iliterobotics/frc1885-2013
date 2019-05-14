@@ -1,6 +1,6 @@
-#frc1885-2013
+# FRC 1885 - 2013
 
-This project contains [FRC team 1885](http://iliterobotics.org)'s code for the 2013 competition [Ultimate Ascent](http://www.youtube.com/watch?v=wa5MGEZNrf0).
+This project contains [FRC Team 1885](http://iliterobotics.org)'s code for the 2013 competition [Ultimate Ascent](http://www.youtube.com/watch?v=wa5MGEZNrf0).
 
 Check out our [wiki](https://github.com/iliterobotics/frc1885-2013/wiki) and source code under several branches:
 
